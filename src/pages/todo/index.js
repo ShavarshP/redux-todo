@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useActions } from "./../../hooks/useActions";
 
-import "./components/style.css";
+import "./components/style.scss";
 import DataBox from "./components/dataBox";
 import TasksForDay from "./components/tasksForDay";
 
@@ -10,11 +10,10 @@ function Todo() {
   const [newTask, setNewTask] = useState("");
   const [dataTask, setDataTask] = useState("");
 
-  const { allTasks, show, taskFromData } = useSelector((state) => state.todo);
+  const { allTasks, show } = useSelector((state) => state.todo);
   const { setAllTasks, setTaskFromData, asyncSetAllTasks } = useActions();
 
   const addTask = (async = false) => {
-    console.log(1);
     if (!newTask) {
       return;
     }
@@ -101,31 +100,39 @@ function Todo() {
     <>
       <div className="App">
         <div className="mainScreen">
-          <div className="create_task">
+          <div className="field">
             <input
+              type="text"
               value={newTask}
               onChange={(e) => {
                 setNewTask(e.target.value);
               }}
+              placeholder="New task"
             />
-
             <input
               type="date"
               value={dataTask}
               onChange={(e) => {
                 setDataTask(e.target.value);
               }}
-            ></input>
-            <button onClick={() => addTask(false)}>add</button>
-            <button onClick={() => addTask(true)}>add async</button>
+            />
+            <button type="button" onClick={() => addTask(false)}>
+              Add
+            </button>
+
+            <button
+              type="button"
+              style={{ marginLeft: "3px" }}
+              onClick={() => addTask(true)}
+            >
+              Add Async
+            </button>
           </div>
-          <DataBox data={allTasks} />
+          <div style={{ display: "flex" }}>
+            <DataBox data={allTasks} />
+            {!show ? null : <TasksForDay checkbox={checkbox} save={save} />}
+          </div>
         </div>
-        {!show ? (
-          <div></div>
-        ) : (
-          <TasksForDay data={taskFromData} checkbox={checkbox} save={save} />
-        )}
       </div>
     </>
   );

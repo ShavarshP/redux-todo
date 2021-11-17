@@ -1,37 +1,8 @@
-// import axios from "axios";
-// import { loadState } from "../../helpers/localStorage";
 import { saveState } from "../../helpers/localStorage";
 import { UserActionTypes } from "../../types/user";
 
-// const API_URL = "http://localhost:5000/api";
-
-// export const updateClickCount = () => {
-//   return async (dispatch) => {
-//     try {
-//       const token = await loadState("accessToken");
-//       await axios.put(`${API_URL}/update-click-count`, null, {
-//         headers: {
-//           Authorization: `Bearer ${token.accessToken}`,
-//           withCredentials: true,
-//         },
-//       });
-//       dispatch({
-//         type: UserActionTypes.USER_DATA_UPDATE_CLICK,
-//         payload: 1,
-//       });
-//     } catch (e) {
-//       alert("invalid data");
-//       dispatch({
-//         type: UserActionTypes.FETCH_USER_ERROR,
-//         payload: "An error has occurred",
-//       });
-//     }
-//   };
-// };
-
 export const setAllTasks = (tasks) => {
   return (dispatch) => {
-    // const tasksJson = JSON.stringify(tasks);
     saveState("todo", tasks);
     dispatch({
       type: UserActionTypes.CREAT_NEW_TASK,
@@ -43,7 +14,6 @@ export const setAllTasks = (tasks) => {
 export const asyncSetAllTasks = (tasks) => {
   return async (dispatch) => {
     await setTimeout(() => {
-      console.log("serTim");
       saveState("todo", tasks);
       dispatch({
         type: UserActionTypes.CREAT_NEW_TASK,

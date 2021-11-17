@@ -1,0 +1,118 @@
+$midnight: #2c3e50;
+$clouds: #ecf0f1;
+
+.field {
+  display: flex;
+  position: realtive;
+  margin: 5em auto;
+  width: 700px;
+  flex-direction: row;
+  -moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.field > input[type="text"],
+.field > button {
+  display: block;
+  font: 1.2em "Open sans";
+}
+
+.field > input[type="text"] {
+  flex: 1;
+  padding: 0.6em;
+  border-left: none;
+  border-top: none;
+}
+
+.field > button {
+  padding: 0.6em 0.8em;
+  background-color: #b4c0c0;
+  color: #fff;
+  border: none;
+}
+
+.tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  &-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    background: $midnight;
+    font-weight: bold;
+    cursor: pointer;
+    /* Icon */
+    &:hover {
+      background: darken($midnight, 10%);
+    }
+    &::after {
+      content: "\276F";
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      transition: all 0.35s;
+    }
+  }
+  &-content {
+    max-height: 0;
+    padding: 0 1em;
+    color: $midnight;
+    background: white;
+    transition: all 0.35s;
+  }
+  &-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    background: $midnight;
+    cursor: pointer;
+    &:hover {
+      background: darken($midnight, 10%);
+    }
+  }
+}
+
+// :checked
+input:checked {
+  + .tab-label {
+    background: darken($midnight, 10%);
+  }
+}
+
+.App {
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 900px;
+  background-color: rgb(238, 238, 238);
+}
+
+.create_task {
+  display: flex;
+}
+.taskByData {
+  display: flex;
+  width: 280px;
+  margin: 8px;
+  cursor: pointer;
+}
+.data_box {
+  width: 700px;
+}
+.mainScreen {
+  width: 400px;
+}
+
+.tasks_for_day_box {
+  margin-top: -50px;
+  padding: 8px;
+  width: 400px;
+  margin-left: 80px;
+}
+
+.flex {
+  display: flex;
+}
