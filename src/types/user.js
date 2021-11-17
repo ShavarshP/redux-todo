@@ -1,0 +1,6 @@
+export const UserActionTypes = {
+  CREAT_NEW_TASK: "CREAT_NEW_TASK",
+  IS_SHOW_TASK: "IS_SHOW_TASK",
+  TASK_FROM_DATA: "TASK_FROM_DATA",
+  SHOWING_DATA: "SHOWING_DATA",
+};
