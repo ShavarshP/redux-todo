@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import "../style.scss";
 import { useEffect, useMemo, useState } from "react";
 import { useActions } from "../../../../hooks/useActions";
 import { useSelector } from "react-redux";
+import "../style.scss";
 
 const TasksForDay = ({ save, checkbox }) => {
   const { allTasks, taskFromData } = useSelector((state) => state.todo);
