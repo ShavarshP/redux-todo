@@ -9,9 +9,7 @@ const App = () => {
         justifyContent: "center",
       }}
     >
-      <>
-        <Todo />
-      </>
+      <Todo />
     </div>
   );
 };
