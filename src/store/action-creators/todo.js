@@ -10,8 +10,10 @@ export const setAllTasks = (tasks) => {
     });
   };
 };
+
 export const asyncSetAllTasks = (tasks) => {
   return async (dispatch) => {
+
     await setTimeout(() => {
       saveState("todo", tasks);
       dispatch({
@@ -30,6 +32,7 @@ export const setShow = (IsShow) => {
     });
   };
 };
+
 export const setTaskFromData = (data) => {
   return (dispatch) => {
     dispatch({
