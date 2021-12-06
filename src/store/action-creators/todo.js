@@ -10,7 +10,6 @@ export const setAllTasks = (tasks) => {
     });
   };
 };
-
 export const asyncSetAllTasks = (tasks) => {
   return async (dispatch) => {
     await setTimeout(() => {
